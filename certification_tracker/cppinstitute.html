@@ -1,142 +1,2166 @@
-<!--cpp institute course dashboard hub-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CPP Institute Course Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+     <style>
+    body {
+      background: linear-gradient(120deg, #1b263b 0%, #23294e 100%);
+      min-height: 100vh;
+      font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+      color: #eaf6fb;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+    .ai-skillfest-highlight {
+      color: #6ec1e4;
+    }
+    .highlight-blue {
+      color: #6ec1e4;
+    }
+    .hub-container {
+      max-width: 900px;
+      margin: 2.5rem auto 2rem auto;
+      background: #23294e;
+      color: #eaf6fb;
+      border-radius: 18px;
+      box-shadow: 0 2px 24px #0a192f99, 0 2px 8px #0008;
+      padding: 2.5rem 2rem 2rem 2rem;
+      animation: fadeInHub 1.2s cubic-bezier(.77,0,.18,1) both;
+    }
+    @keyframes fadeInHub {
+      from { opacity: 0; transform: translateY(60px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    .hub-title {
+      font-size: 2.3rem;
+      color: #6ec1e4;
+      text-shadow: 0 2px 24px #005ba199, 0 1px 0 #fff1;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      animation: fadeInSection 1.1s cubic-bezier(.77,0,.18,1) both;
+    }
+    .hub-desc {
+      font-size: 1.15rem;
+      color: #b3d6f7;
+      margin-bottom: 1.7rem;
+      animation: fadeInItem 1s cubic-bezier(.77,0,.18,1) both;
+    }
+    .hub-section {
+      margin-bottom: 2.2rem;
+      background: #20243a;
+      border-radius: 12px;
+      box-shadow: 0 1px 8px #005ba133;
+      padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+      animation: fadeInItem 1s cubic-bezier(.77,0,.18,1) both;
+    }
+    .hub-section h2 {
+      color: #6ec1e4;
+      margin-bottom: 0.7rem;
+      letter-spacing: 1px;
+      font-size: 1.35rem;
+      text-shadow: 0 2px 12px #005ba199;
+      animation: fadeInSection 1.1s cubic-bezier(.77,0,.18,1) both;
+    }
+    @keyframes fadeInSection {
+      from { opacity: 0; transform: translateX(-40px);}
+      to { opacity: 1; transform: translateX(0);}
+    }
+    .badge-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      padding: 0;
+      margin: 0;
+    }
+    .badge-item {
+      background: #23294e;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px #005ba133;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem 1.2rem;
+      min-width: 120px;
+      max-width: 160px;
+      margin-bottom: 0.7rem;
+      animation: fadeInItem 1s cubic-bezier(.77,0,.18,1) both;
+      border: 1px solid #334366;
+    }
+    .badge-item img {
+      width: 54px;
+      height: 54px;
+      margin-bottom: 0.5rem;
+      filter: drop-shadow(0 0 8px #6ec1e4cc);
+      background: #fff;
+      border-radius: 50%;
+      padding: 4px;
+    }
+    .badge-item span {
+      color: #eaf6fb;
+      font-size: 1.02rem;
+      text-align: center;
+    }
+    @keyframes fadeInItem {
+      from { opacity: 0; transform: translateY(30px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    .progress-bar {
+      background: #334366;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 0.5rem;
+      box-shadow: 0 1px 8px #005ba133;
+      width: 100%;
+      max-width: 260px;
+      height: 18px;
+    }
+    .progress-bar-inner {
+      background: linear-gradient(90deg, #6ec1e4, #005ba1);
+      height: 100%;
+      transition: width 0.7s cubic-bezier(.77,0,.18,1);
+      box-shadow: 0 0 16px #6ec1e499;
+    }
+    .progress-60 {
+      width: 60%;
+    }
+    .progress-90 {
+      width: 90%;
+    }
+    .progress-40 {
+      width: 40%;
+    }
+    .challenge-list, .project-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .challenge-list li, .project-list li {
+      margin-bottom: 0.7rem;
+      font-size: 1.08rem;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      animation: fadeInItem 1s cubic-bezier(.77,0,.18,1) both;
+    }
+    .project-link {
+      color: #6ec1e4;
+      text-decoration: underline;
+      transition: color 0.2s;
+      font-weight: 500;
+    }
+    .project-link:hover {
+      color: #fff;
+    }
+    /* AI Skill Fest Button Styles */
+    .ai-skillfest-btn-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+      animation: fadeInItem 1.2s cubic-bezier(.77,0,.18,1) both;
+    }
+    .ai-skillfest-btn {
+      position: relative;
+      background: linear-gradient(90deg, #6ec1e4 0%, #005ba1 100%);
+      color: #fff;
+      font-size: 1.18rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 2.5em;
+      padding: 0.85em 2.5em;
+      cursor: pointer;
+      overflow: hidden;
+      box-shadow: 0 4px 24px #005ba199, 0 2px 8px #0008;
+      transition: transform 0.2s, box-shadow 0.2s;
+      z-index: 1;
+      outline: none;
+    }
+    .ai-skillfest-btn:hover {
+      transform: scale(1.07) rotate(-2deg);
+      box-shadow: 0 8px 32px #6ec1e499, 0 4px 16px #000a;
+      color: #fff;
+    }
+    .ai-btn-text {
+      position: relative;
+      z-index: 2;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 12px #005ba199, 0 1px 0 #fff1;
+    }
+    .ai-glow {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.5;
+      filter: blur(16px);
+      animation: ai-glow-anim 2.5s infinite linear;
+      z-index: 1;
+    }
+    .ai-glow:nth-child(1) {
+      width: 60px; height: 60px; left: 10%; top: 50%; background: #6ec1e4cc; animation-delay: 0s;
+    }
+    .ai-glow:nth-child(2) {
+      width: 40px; height: 40px; left: 70%; top: 20%; background: #005ba1cc; animation-delay: 0.7s;
+    }
+    .ai-glow:nth-child(3) {
+      width: 50px; height: 50px; left: 50%; top: 80%; background: #6ec1e499; animation-delay: 1.2s;
+    }
+    @keyframes ai-glow-anim {
+      0% { transform: scale(1) translateY(0);}
+      50% { transform: scale(1.2) translateY(-8px);}
+      100% { transform: scale(1) translateY(0);}
+    }
+
+    /* Floating Home Button styling */
+    .floating-home-button {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: #5ea0ef;
+      color: #181c24;
+      border: none;
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px #5ea0ef55, 0 2px 0 #000a;
+      z-index: 99;
+      outline: none;
+    }
+    .floating-home-button:hover {
+      background: #2563eb;
+      color: #fff;
+      transform: scale(1.09);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: #7a7e8a;
+      font-size: 1rem;
+      margin: 2rem 0 1rem 0;
+      letter-spacing: 1px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .certifications {
+        gap: 1.2rem;
+        padding: 2rem 0.5rem 1.5rem 0.5rem;
+      }
+      .tile {
+        flex: 0 0 180px;
+        padding: 1.2rem 0.5rem 1rem 0.5rem;
+      }
+      .tile img {
+        width: 56px;
+        height: 56px;
+      }
+      .floating-home-button {
+        width: 44px;
+        height: 44px;
+        font-size: 1.3rem;
+        bottom: 16px;
+        right: 16px;
+      }
+      .navbar h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Floating Home Button styling */
+    .floating-home-button {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: #5ea0ef;
+      color: #181c24;
+      border: none;
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px #5ea0ef55, 0 2px 0 #000a;
+      z-index: 99;
+      outline: none;
+    }
+    .floating-home-button:hover {
+      background: #2563eb;
+      color: #fff;
+      transform: scale(1.09);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: #7a7e8a;
+      font-size: 1rem;
+      margin: 2rem 0 1rem 0;
+      letter-spacing: 1px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .certifications {
+        gap: 1.2rem;
+        padding: 2rem 0.5rem 1.5rem 0.5rem;
+      }
+      .tile {
+        flex: 0 0 180px;
+        padding: 1.2rem 0.5rem 1rem 0.5rem;
+      }
+      .tile img {
+        width: 56px;
+        height: 56px;
+      }
+      .floating-home-button {
+        width: 44px;
+        height: 44px;
+        font-size: 1.3rem;
+        bottom: 16px;
+        right: 16px;
+      }
+      .navbar h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Floating Home Button styling */
+    .floating-home-button {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: #5ea0ef;
+      color: #181c24;
+      border: none;
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px #5ea0ef55, 0 2px 0 #000a;
+      z-index: 99;
+      outline: none;
+    }
+    .floating-home-button:hover {
+      background: #2563eb;
+      color: #fff;
+      transform: scale(1.09);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: #7a7e8a;
+      font-size: 1rem;
+      margin: 2rem 0 1rem 0;
+      letter-spacing: 1px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .certifications {
+        gap: 1.2rem;
+        padding: 2rem 0.5rem 1.5rem 0.5rem;
+      }
+      .tile {
+        flex: 0 0 180px;
+        padding: 1.2rem 0.5rem 1rem 0.5rem;
+      }
+      .tile img {
+        width: 56px;
+        height: 56px;
+      }
+      .floating-home-button {
+        width: 44px;
+        height: 44px;
+        font-size: 1.3rem;
+        bottom: 16px;
+        right: 16px;
+      }
+      .navbar h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Floating Home Button styling */
+    .floating-home-button {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: #5ea0ef;
+      color: #181c24;
+      border: none;
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px #5ea0ef55, 0 2px 0 #000a;
+      z-index: 99;
+      outline: none;
+    }
+    .floating-home-button:hover {
+      background: #2563eb;
+      color: #fff;
+      transform: scale(1.09);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: #7a7e8a;
+      font-size: 1rem;
+      margin: 2rem 0 1rem 0;
+      letter-spacing: 1px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .certifications {
+        gap: 1.2rem;
+        padding: 2rem 0.5rem 1.5rem 0.5rem;
+      }
+      .tile {
+        flex: 0 0 180px;
+        padding: 1.2rem 0.5rem 1rem 0.5rem;
+      }
+      .tile img {
+        width: 56px;
+        height: 56px;
+      }
+      .floating-home-button {
+        width: 44px;
+        height: 44px;
+        font-size: 1.3rem;
+        bottom: 16px;
+        right: 16px;
+      }
+      .navbar h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Floating Home Button styling */
+    .floating-home-button {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: #5ea0ef;
+      color: #181c24;
+      border: none;
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px #5ea0ef55, 0 2px 0 #000a;
+      z-index: 99;
+      outline: none;
+    }
+    .floating-home-button:hover {
+      background: #2563eb;
+      color: #fff;
+      transform: scale(1.09);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: #7a7e8a;
+      font-size: 1rem;
+      margin: 2rem 0 1rem 0;
+      letter-spacing: 1px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .certifications {
+        gap: 1.2rem;
+        padding: 2rem 0.5rem 1.5rem 0.5rem;
+      }
+      .tile {
+        flex: 0 0 180px;
+        padding: 1.2rem 0.5rem 1rem 0.5rem;
+      }
+      .tile img {
+        width: 56px;
+        height: 56px;
+      }
+      .floating-home-button {
+        width: 44px;
+        height: 44px;
+        font-size: 1.3rem;
+        bottom: 16px;
+        right: 16px;
+      }
+      .navbar h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Floating Home Button styling */
+    .floating-home-button {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: #5ea0ef;
+      color: #181c24;
+      border: none;
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px #5ea0ef55, 0 2px 0 #000a;
+      z-index: 99;
+      outline: none;
+    }
+    .floating-home-button:hover {
+      background: #2563eb;
+      color: #fff;
+      transform: scale(1.09);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: #7a7e8a;
+      font-size: 1rem;
+      margin: 2rem 0 1rem 0;
+      letter-spacing: 1px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .certifications {
+        gap: 1.2rem;
+        padding: 2rem 0.5rem 1.5rem 0.5rem;
+      }
+      .tile {
+        flex: 0 0 180px;
+        padding: 1.2rem 0.5rem 1rem 0.5rem;
+      }
+      .tile img {
+        width: 56px;
+        height: 56px;
+      }
+      .floating-home-button {
+        width: 44px;
+        height: 44px;
+        font-size: 1.3rem;
+        bottom: 16px;
+        right: 16px;
+      }
+      .navbar h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Floating Home Button styling */
+    .floating-home-button {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: #5ea0ef;
+      color: #181c24;
+      border: none;
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px #5ea0ef55, 0 2px 0 #000a;
+      z-index: 99;
+      outline: none;
+    }
+    .floating-home-button:hover {
+      background: #2563eb;
+      color: #fff;
+      transform: scale(1.09);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: #7a7e8a;
+      font-size: 1rem;
+      margin: 2rem 0 1rem 0;
+      letter-spacing: 1px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .certifications {
+        gap: 1.2rem;
+        padding: 2rem 0.5rem 1.5rem 0.5rem;
+      }
+      .tile {
+        flex: 0 0 180px;
+        padding: 1.2rem 0.5rem 1rem 0.5rem;
+      }
+      .tile img {
+        width: 56px;
+        height: 56px;
+      }
+      .floating-home-button {
+        width: 44px;
+        height: 44px;
+        font-size: 1.3rem;
+        bottom: 16px;
+        right: 16px;
+      }
+      .navbar h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Floating Home Button styling */
+    .floating-home-button {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: #5ea0ef;
+      color: #181c24;
+      border: none;
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px #5ea0ef55, 0 2px 0 #000a;
+      z-index: 99;
+      outline: none;
+    }
+    .floating-home-button:hover {
+      background: #2563eb;
+      color: #fff;
+      transform: scale(1.09);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: #7a7e8a;
+      font-size: 1rem;
+      margin: 2rem 0 1rem 0;
+      letter-spacing: 1px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .certifications {
+        gap: 1.2rem;
+        padding: 2rem 0.5rem 1.5rem 0.5rem;
+      }
+      .tile {
+        flex: 0 0 180px;
+        padding: 1.2rem 0.5rem 1rem 0.5rem;
+      }
+      .tile img {
+        width: 56px;
+        height: 56px;
+      }
+      .floating-home-button {
+        width: 44px;
+        height: 44px;
+        font-size: 1.3rem;
+        bottom: 16px;
+        right: 16px;
+      }
+      .navbar h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Floating Home Button styling */
+    .floating-home-button {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: #5ea0ef;
+      color: #181c24;
+      border: none;
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px #5ea0ef55, 0 2px 0 #000a;
+      z-index: 99;
+      outline: none;
+    }
+    .floating-home-button:hover {
+      background: #2563eb;
+      color: #fff;
+      transform: scale(1.09);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: #7a7e8a;
+      font-size: 1rem;
+      margin: 2rem 0 1rem 0;
+      letter-spacing: 1px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .certifications {
+        gap: 1.2rem;
+        padding: 2rem 0.5rem 1.5rem 0.5rem;
+      }
+      .tile {
+        flex: 0 0 180px;
+        padding: 1.2rem 0.5rem 1rem 0.5rem;
+      }
+      .tile img {
+        width: 56px;
+        height: 56px;
+      }
+      .floating-home-button {
+        width: 44px;
+        height: 44px;
+        font-size: 1.3rem;
+        bottom: 16px;
+        right: 16px;
+      }
+      .navbar h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Floating Home Button styling */
+    .floating-home-button {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: #5ea0ef;
+      color: #181c24;
+      border: none;
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px #5ea0ef55, 0 2px 0 #000a;
+      z-index: 99;
+      outline: none;
+    }
+    .floating-home-button:hover {
+      background: #2563eb;
+      color: #fff;
+      transform: scale(1.09);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: #7a7e8a;
+      font-size: 1rem;
+      margin: 2rem 0 1rem 0;
+      letter-spacing: 1px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .certifications {
+        gap: 1.2rem;
+        padding: 2rem 0.5rem 1.5rem 0.5rem;
+      }
+      .tile {
+        flex: 0 0 180px;
+        padding: 1.2rem 0.5rem 1rem 0.5rem;
+      }
+      .tile img {
+        width: 56px;
+        height: 56px;
+      }
+      .floating-home-button {
+        width: 44px;
+        height: 44px;
+        font-size: 1.3rem;
+        bottom: 16px;
+        right: 16px;
+      }
+      .navbar h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Floating Home Button styling */
+    .floating-home-button {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: #5ea0ef;
+      color: #181c24;
+      border: none;
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px #5ea0ef55, 0 2px 0 #000a;
+      z-index: 99;
+      outline: none;
+    }
+    .floating-home-button:hover {
+      background: #2563eb;
+      color: #fff;
+      transform: scale(1.09);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: #7a7e8a;
+      font-size: 1rem;
+      margin: 2rem 0 1rem 0;
+      letter-spacing: 1px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .certifications {
+        gap: 1.2rem;
+        padding: 2rem 0.5rem 1.5rem 0.5rem;
+      }
+      .tile {
+        flex: 0 0 180px;
+        padding: 1.2rem 0.5rem 1rem 0.5rem;
+      }
+      .tile img {
+        width: 56px;
+        height: 56px;
+      }
+      .floating-home-button {
+        width: 44px;
+        height: 44px;
+        font-size: 1.3rem;
+        bottom: 16px;
+        right: 16px;
+      }
+      .navbar h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Floating Home Button styling */
+    .floating-home-button {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: #5ea0ef;
+      color: #181c24;
+      border: none;
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px #5ea0ef55, 0 2px 0 #000a;
+      z-index: 99;
+      outline: none;
+    }
+    .floating-home-button:hover {
+      background: #2563eb;
+      color: #fff;
+      transform: scale(1.09);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: #7a7e8a;
+      font-size: 1rem;
+      margin: 2rem 0 1rem 0;
+      letter-spacing: 1px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .certifications {
+        gap: 1.2rem;
+        padding: 2rem 0.5rem 1.5rem 0.5rem;
+      }
+      .tile {
+        flex: 0 0 180px;
+        padding: 1.2rem 0.5rem 1rem 0.5rem;
+      }
+      .tile img {
+        width: 56px;
+        height: 56px;
+      }
+      .floating-home-button {
+        width: 44px;
+        height: 44px;
+        font-size: 1.3rem;
+        bottom: 16px;
+        right: 16px;
+      }
+      .navbar h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Floating Home Button styling */
+    .floating-home-button {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: #5ea0ef;
+      color: #181c24;
+      border: none;
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px #5ea0ef55, 0 2px 0 #000a;
+      z-index: 99;
+      outline: none;
+    }
+    .floating-home-button:hover {
+      background: #2563eb;
+      color: #fff;
+      transform: scale(1.09);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: #7a7e8a;
+      font-size: 1rem;
+      margin: 2rem 0 1rem 0;
+      letter-spacing: 1px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .certifications {
+        gap: 1.2rem;
+        padding: 2rem 0.5rem 1.5rem 0.5rem;
+      }
+      .tile {
+        flex: 0 0 180px;
+        padding: 1.2rem 0.5rem 1rem 0.5rem;
+      }
+      .tile img {
+        width: 56px;
+        height: 56px;
+      }
+      .floating-home-button {
+        width: 44px;
+        height: 44px;
+        font-size: 1.3rem;
+        bottom: 16px;
+        right: 16px;
+      }
+      .navbar h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Floating Home Button styling */
+    .floating-home-button {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: #5ea0ef;
+      color: #181c24;
+      border: none;
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px #5ea0ef55, 0 2px 0 #000a;
+      z-index: 99;
+      outline: none;
+    }
+    .floating-home-button:hover {
+      background: #2563eb;
+      color: #fff;
+      transform: scale(1.09);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: #7a7e8a;
+      font-size: 1rem;
+      margin: 2rem 0 1rem 0;
+      letter-spacing: 1px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .certifications {
+        gap: 1.2rem;
+        padding: 2rem 0.5rem 1.5rem 0.5rem;
+      }
+      .tile {
+        flex: 0 0 180px;
+        padding: 1.2rem 0.5rem 1rem 0.5rem;
+      }
+      .tile img {
+        width: 56px;
+        height: 56px;
+      }
+      .floating-home-button {
+        width: 44px;
+        height: 44px;
+        font-size: 1.3rem;
+        bottom: 16px;
+        right: 16px;
+      }
+      .navbar h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Floating Home Button styling */
+    .floating-home-button {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: #5ea0ef;
+      color: #181c24;
+      border: none;
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px #5ea0ef55, 0 2px 0 #000a;
+      z-index: 99;
+      outline: none;
+    }
+    .floating-home-button:hover {
+      background: #2563eb;
+      color: #fff;
+      transform: scale(1.09);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: #7a7e8a;
+      font-size: 1rem;
+      margin: 2rem 0 1rem 0;
+      letter-spacing: 1px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .certifications {
+        gap: 1.2rem;
+        padding: 2rem 0.5rem 1.5rem 0.5rem;
+      }
+      .tile {
+        flex: 0 0 180px;
+        padding: 1.2rem 0.5rem 1rem 0.5rem;
+      }
+      .tile img {
+        width: 56px;
+        height: 56px;
+      }
+      .floating-home-button {
+        width: 44px;
+        height: 44px;
+        font-size: 1.3rem;
+        bottom: 16px;
+        right: 16px;
+      }
+      .navbar h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Floating Home Button styling */
+    .floating-home-button {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: #5ea0ef;
+      color: #181c24;
+      border: none;
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px #5ea0ef55, 0 2px 0 #000a;
+      z-index: 99;
+      outline: none;
+    }
+    .floating-home-button:hover {
+      background: #2563eb;
+      color: #fff;
+      transform: scale(1.09);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: #7a7e8a;
+      font-size: 1rem;
+      margin: 2rem 0 1rem 0;
+      letter-spacing: 1px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .certifications {
+        gap: 1.2rem;
+        padding: 2rem 0.5rem 1.5rem 0.5rem;
+      }
+      .tile {
+        flex: 0 0 180px;
+        padding: 1.2rem 0.5rem 1rem 0.5rem;
+      }
+      .tile img {
+        width: 56px;
+        height: 56px;
+      }
+      .floating-home-button {
+        width: 44px;
+        height: 44px;
+        font-size: 1.3rem;
+        bottom: 16px;
+        right: 16px;
+      }
+      .navbar h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Floating Home Button styling */
+    .floating-home-button {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: #5ea0ef;
+      color: #181c24;
+      border: none;
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px #5ea0ef55, 0 2px 0 #000a;
+      z-index: 99;
+      outline: none;
+    }
+    .floating-home-button:hover {
+      background: #2563eb;
+      color: #fff;
+      transform: scale(1.09);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: #7a7e8a;
+      font-size: 1rem;
+      margin: 2rem 0 1rem 0;
+      letter-spacing: 1px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .certifications {
+        gap: 1.2rem;
+        padding: 2rem 0.5rem 1.5rem 0.5rem;
+      }
+      .tile {
+        flex: 0 0 180px;
+        padding: 1.2rem 0.5rem 1rem 0.5rem;
+      }
+      .tile img {
+        width: 56px;
+        height: 56px;
+      }
+      .floating-home-button {
+        width: 44px;
+        height: 44px;
+        font-size: 1.3rem;
+        bottom: 16px;
+        right: 16px;
+      }
+      .navbar h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Floating Home Button styling */
+    .floating-home-button {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: #5ea0ef;
+      color: #181c24;
+      border: none;
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px #5ea0ef55, 0 2px 0 #000a;
+      z-index: 99;
+      outline: none;
+    }
+    .floating-home-button:hover {
+      background: #2563eb;
+      color: #fff;
+      transform: scale(1.09);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: #7a7e8a;
+      font-size: 1rem;
+      margin: 2rem 0 1rem 0;
+      letter-spacing: 1px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .certifications {
+        gap: 1.2rem;
+        padding: 2rem 0.5rem 1.5rem 0.5rem;
+      }
+      .tile {
+        flex: 0 0 180px;
+        padding: 1.2rem 0.5rem 1rem 0.5rem;
+      }
+      .tile img {
+        width: 56px;
+        height: 56px;
+      }
+      .floating-home-button {
+        width: 44px;
+        height: 44px;
+        font-size: 1.3rem;
+        bottom: 16px;
+        right: 16px;
+      }
+      .navbar h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Floating Home Button styling */
+    .floating-home-button {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: #5ea0ef;
+      color: #181c24;
+      border: none;
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px #5ea0ef55, 0 2px 0 #000a;
+      z-index: 99;
+      outline: none;
+    }
+    .floating-home-button:hover {
+      background: #2563eb;
+      color: #fff;
+      transform: scale(1.09);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: #7a7e8a;
+      font-size: 1rem;
+      margin: 2rem 0 1rem 0;
+      letter-spacing: 1px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .certifications {
+        gap: 1.2rem;
+        padding: 2rem 0.5rem 1.5rem 0.5rem;
+      }
+      .tile {
+        flex: 0 0 180px;
+        padding: 1.2rem 0.5rem 1rem 0.5rem;
+      }
+      .tile img {
+        width: 56px;
+        height: 56px;
+      }
+      .floating-home-button {
+        width: 44px;
+        height: 44px;
+        font-size: 1.3rem;
+        bottom: 16px;
+        right: 16px;
+      }
+      .navbar h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Floating Home Button styling */
+    .floating-home-button {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: #5ea0ef;
+      color: #181c24;
+      border: none;
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px #5ea0ef55, 0 2px 0 #000a;
+      z-index: 99;
+      outline: none;
+    }
+    .floating-home-button:hover {
+      background: #2563eb;
+      color: #fff;
+      transform: scale(1.09);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: #7a7e8a;
+      font-size: 1rem;
+      margin: 2rem 0 1rem 0;
+      letter-spacing: 1px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .certifications {
+        gap: 1.2rem;
+        padding: 2rem 0.5rem 1.5rem 0.5rem;
+      }
+      .tile {
+        flex: 0 0 180px;
+        padding: 1.2rem 0.5rem 1rem 0.5rem;
+      }
+      .tile img {
+        width: 56px;
+        height: 56px;
+      }
+      .floating-home-button {
+        width: 44px;
+        height: 44px;
+        font-size: 1.3rem;
+        bottom: 16px;
+        right: 16px;
+      }
+      .navbar h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Floating Home Button styling */
+    .floating-home-button {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: #5ea0ef;
+      color: #181c24;
+      border: none;
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px #5ea0ef55, 0 2px 0 #000a;
+      z-index: 99;
+      outline: none;
+    }
+    .floating-home-button:hover {
+      background: #2563eb;
+      color: #fff;
+      transform: scale(1.09);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: #7a7e8a;
+      font-size: 1rem;
+      margin: 2rem 0 1rem 0;
+      letter-spacing: 1px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .certifications {
+        gap: 1.2rem;
+        padding: 2rem 0.5rem 1.5rem 0.5rem;
+      }
+      .tile {
+        flex: 0 0 180px;
+        padding: 1.2rem 0.5rem 1rem 0.5rem;
+      }
+      .tile img {
+        width: 56px;
+        height: 56px;
+      }
+      .floating-home-button {
+        width: 44px;
+        height: 44px;
+        font-size: 1.3rem;
+        bottom: 16px;
+        right: 16px;
+      }
+      .navbar h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Floating Home Button styling */
+    .floating-home-button {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: #5ea0ef;
+      color: #181c24;
+      border: none;
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px #5ea0ef55, 0 2px 0 #000a;
+      z-index: 99;
+      outline: none;
+    }
+    .floating-home-button:hover {
+      background: #2563eb;
+      color: #fff;
+      transform: scale(1.09);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: #7a7e8a;
+      font-size: 1rem;
+      margin: 2rem 0 1rem 0;
+      letter-spacing: 1px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .certifications {
+        gap: 1.2rem;
+        padding: 2rem 0.5rem 1.5rem 0.5rem;
+      }
+      .tile {
+        flex: 0 0 180px;
+        padding: 1.2rem 0.5rem 1rem 0.5rem;
+      }
+      .tile img {
+        width: 56px;
+        height: 56px;
+      }
+      .floating-home-button {
+        width: 44px;
+        height: 44px;
+        font-size: 1.3rem;
+        bottom: 16px;
+        right: 16px;
+      }
+      .navbar h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Floating Home Button styling */
+    .floating-home-button {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: #5ea0ef;
+      color: #181c24;
+      border: none;
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px #5ea0ef55, 0 2px 0 #000a;
+      z-index: 99;
+      outline: none;
+    }
+    .floating-home-button:hover {
+      background: #2563eb;
+      color: #fff;
+      transform: scale(1.09);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: #7a7e8a;
+      font-size: 1rem;
+      margin: 2rem 0 1rem 0;
+      letter-spacing: 1px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .certifications {
+        gap: 1.2rem;
+        padding: 2rem 0.5rem 1.5rem 0.5rem;
+      }
+      .tile {
+        flex: 0 0 180px;
+        padding: 1.2rem 0.5rem 1rem 0.5rem;
+      }
+      .tile img {
+        width: 56px;
+        height: 56px;
+      }
+      .floating-home-button {
+        width: 44px;
+        height: 44px;
+        font-size: 1.3rem;
+        bottom: 16px;
+        right: 16px;
+      }
+      .navbar h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Floating Home Button styling */
+    .floating-home-button {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: #5ea0ef;
+      color: #181c24;
+      border: none;
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px #5ea0ef55, 0 2px 0 #000a;
+      z-index: 99;
+      outline: none;
+    }
+    .floating-home-button:hover {
+      background: #2563eb;
+      color: #fff;
+      transform: scale(1.09);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: #7a7e8a;
+      font-size: 1rem;
+      margin: 2rem 0 1rem 0;
+      letter-spacing: 1px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .certifications {
+        gap: 1.2rem;
+        padding: 2rem 0.5rem 1.5rem 0.5rem;
+      }
+      .tile {
+        flex: 0 0 180px;
+        padding: 1.2rem 0.5rem 1rem 0.5rem;
+      }
+      .tile img {
+        width: 56px;
+        height: 56px;
+      }
+      .floating-home-button {
+        width: 44px;
+        height: 44px;
+        font-size: 1.3rem;
+        bottom: 16px;
+        right: 16px;
+      }
+      .navbar h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Floating Home Button styling */
+    .floating-home-button {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: #5ea0ef;
+      color: #181c24;
+      border: none;
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px #5ea0ef55, 0 2px 0 #000a;
+      z-index: 99;
+      outline: none;
+    }
+    .floating-home-button:hover {
+      background: #2563eb;
+      color: #fff;
+      transform: scale(1.09);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: #7a7e8a;
+      font-size: 1rem;
+      margin: 2rem 0 1rem 0;
+      letter-spacing: 1px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .certifications {
+        gap: 1.2rem;
+        padding: 2rem 0.5rem 1.5rem 0.5rem;
+      }
+      .tile {
+        flex: 0 0 180px;
+        padding: 1.2rem 0.5rem 1rem 0.5rem;
+      }
+      .tile img {
+        width: 56px;
+        height: 56px;
+      }
+      .floating-home-button {
+        width: 44px;
+        height: 44px;
+        font-size: 1.3rem;
+        bottom: 16px;
+        right: 16px;
+      }
+      .navbar h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Floating Home Button styling */
+    .floating-home-button {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: #5ea0ef;
+      color: #181c24;
+      border: none;
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px #5ea0ef55, 0 2px 0 #000a;
+      z-index: 99;
+      outline: none;
+    }
+    .floating-home-button:hover {
+      background: #2563eb;
+      color: #fff;
+      transform: scale(1.09);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: #7a7e8a;
+      font-size: 1rem;
+      margin: 2rem 0 1rem 0;
+      letter-spacing: 1px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .certifications {
+        gap: 1.2rem;
+        padding: 2rem 0.5rem 1.5rem 0.5rem;
+      }
+      .tile {
+        flex: 0 0 180px;
+        padding: 1.2rem 0.5rem 1rem 0.5rem;
+      }
+      .tile img {
+        width: 56px;
+        height: 56px;
+      }
+      .floating-home-button {
+        width: 44px;
+        height: 44px;
+        font-size: 1.3rem;
+        bottom: 16px;
+        right: 16px;
+      }
+      .navbar h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Floating Home Button styling */
+    .floating-home-button {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: #5ea0ef;
+      color: #181c24;
+      border: none;
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px #5ea0ef55, 0 2px 0 #000a;
+      z-index: 99;
+      outline: none;
+    }
+    .floating-home-button:hover {
+      background: #2563eb;
+      color: #fff;
+      transform: scale(1.09);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: #7a7e8a;
+      font-size: 1rem;
+      margin: 2rem 0 1rem 0;
+      letter-spacing: 1px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .certifications {
+        gap: 1.2rem;
+        padding: 2rem 0.5rem 1.5rem 0.5rem;
+      }
+      .tile {
+        flex: 0 0 180px;
+        padding: 1.2rem 0.5rem 1rem 0.5rem;
+      }
+      .tile img {
+        width: 56px;
+        height: 56px;
+      }
+      .floating-home-button {
+        width: 44px;
+        height: 44px;
+        font-size: 1.3rem;
+        bottom: 16px;
+        right: 16px;
+      }
+      .navbar h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Floating Home Button styling */
+    .floating-home-button {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: #5ea0ef;
+      color: #181c24;
+      border: none;
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px #5ea0ef55, 0 2px 0 #000a;
+      z-index: 99;
+      outline: none;
+    }
+    .floating-home-button:hover {
+      background: #2563eb;
+      color: #fff;
+      transform: scale(1.09);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: #7a7e8a;
+      font-size: 1rem;
+      margin: 2rem 0 1rem 0;
+      letter-spacing: 1px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .certifications {
+        gap: 1.2rem;
+        padding: 2rem 0.5rem 1.5rem 0.5rem;
+      }
+      .tile {
+        flex: 0 0 180px;
+        padding: 1.2rem 0.5rem 1rem 0.5rem;
+      }
+      .tile img {
+        width: 56px;
+        height: 56px;
+      }
+      .floating-home-button {
+        width: 44px;
+        height: 44px;
+        font-size: 1.3rem;
+        bottom: 16px;
+        right: 16px;
+      }
+      .navbar h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Floating Home Button styling */
+    .floating-home-button {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: #5ea0ef;
+      color: #181c24;
+      border: none;
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px #5ea0ef55, 0 2px 0 #000a;
+      z-index: 99;
+      outline: none;
+    }
+    .floating-home-button:hover {
+      background: #2563eb;
+      color: #fff;
+      transform: scale(1.09);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: #7a7e8a;
+      font-size: 1rem;
+      margin: 2rem 0 1rem 0;
+      letter-spacing: 1px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .certifications {
+        gap: 1.2rem;
+        padding: 2rem 0.5rem 1.5rem 0.5rem;
+      }
+      .tile {
+        flex: 0 0 180px;
+        padding: 1.2rem 0.5rem 1rem 0.5rem;
+      }
+      .tile img {
+        width: 56px;
+        height: 56px;
+      }
+      .floating-home-button {
+        width: 44px;
+        height: 44px;
+        font-size: 1.3rem;
+        bottom: 16px;
+        right: 16px;
+      }
+      .navbar h1 {
+        font-size: 1.5rem;
+      }
+    }
+    footer {
+      text-align: center;
+      color: #b3d6f7;
+      font-size: 1rem;
+      padding: 1.5rem 0 0.5rem 0;
+      background: transparent;
+      letter-spacing: 1px;
+      margin-top: 2rem;
+    }
+    @media (max-width: 600px) {
+      .hub-container { padding: 1.2rem 0.5rem;}
+      .hub-title { font-size: 1.3rem;}
+      .badge-list { gap: 0.5rem;}
+      .hub-section { padding: 1rem 0.5rem;}
+    }
+  </style>
+</head>
+<body>
+
 <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h1>CPP Institute Course Dashboard</h1>
-            <p>Welcome to your CPP Institute course dashboard. Here you can track your progress and access course materials.</p>
+    <!-- Header -->
+    <div class="dashboard-header">
+        <h1>CPP Institute Course Dashboard</h1>
+        <p class="lead">Track your progress and access your course materials with ease.</p>
+    </div>
+
+    <!-- Enrolled Courses -->
+    <div class="section">
+        <h2>Enrolled Courses</h2>
+        <div id="course-list">
+            <p>Loading courses...</p>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-12">
-            <h2>Your Courses</h2>
-            <!-- Course list will be dynamically generated here -->
+
+    <!-- Upcoming Exams -->
+    <div class="section">
+        <h2>Upcoming Exams</h2>
+        <div id="exam-list">
+            <p>Loading exams...</p>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-12">
-            <h2>Upcoming Exams</h2>
-            <!-- Exam list will be dynamically generated here -->
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <h2>Resources</h2>
-            <ul>
-                <li><a href="https://www.cppinstitute.org/resources">CPP Institute Resources</a></li>
-                <li><a href="https://www.cppinstitute.org/community">CPP Institute Community</a></li>
-                <li><a href="https://www.cppinstitute.org/support">Support</a></li>
-                <li><a href="https://edube.org/study">Learning</a></li>
-                <li><a href="https://edube.org/courses">Courses</a></li>
-                <li><a href="https://github.com/Nathan-Busse/CPP-Institute">Notes</a></li>
-            </ul>
-        </div>
+
+    <!-- Resources -->
+    <div class="section">
+        <h2>Resources</h2>
+        <ul class="resource-list">
+            <li><a href="https://cppinstitute.org/certification-exams" target="_blank">CPP Institute Certification Exams</a></li>
+            <li><a href="https://edube.org/study" target="_blank">Edube Study</a></li>
+            <li><a href="https://edube.org/courses" target="_blank">Edube Courses</a></li>
+            <li><a href="https://github.com/Nathan-Busse/CPP-Institute" target="_blank">GitHub Notes</a></li>
+        </ul>
     </div>
 </div>
-<!-- Add any additional scripts or stylesheets here -->
+
+<!-- JavaScript -->
 <script>
-    // Example script to dynamically load courses and exams
-    document.addEventListener('DOMContentLoaded', function() {
-        // Fetch and display courses and exams
+    document.addEventListener('DOMContentLoaded', () => {
+        // Load courses
         fetch('/api/courses')
             .then(response => response.json())
             .then(data => {
-                const courseList = document.querySelector('.row:nth-child(2) .col-md-12');
-                data.courses.forEach(course => {
-                    const courseItem = document.createElement('div');
-                    courseItem.innerHTML = `<h3>${course.title}</h3><p>${course.description}</p>`;
-                    courseList.appendChild(courseItem);
-                });
+                const courseList = document.getElementById('course-list');
+                courseList.innerHTML = '';
+
+                if (data.courses.length === 0) {
+                    courseList.innerHTML = '<p>No enrolled courses found.</p>';
+                } else {
+                    data.courses.forEach(course => {
+                        const courseItem = document.createElement('div');
+                        courseItem.className = 'card-box';
+                        courseItem.innerHTML = `<h4>${course.title}</h4><p>${course.description}</p>`;
+                        courseList.appendChild(courseItem);
+                    });
+                }
+            })
+            .catch(error => {
+                document.getElementById('course-list').innerHTML = '<p>Error loading courses.</p>';
+                console.error('Course fetch error:', error);
             });
+
+        // Load exams
         fetch('/api/exams')
             .then(response => response.json())
             .then(data => {
-                const examList = document.querySelector('.row:nth-child(3) .col-md-12');
-                data.exams.forEach(exam => {
-                    const examItem = document.createElement('div');
-                    examItem.innerHTML = `<h3>${exam.title}</h3><p>Date: ${exam.date}</p>`;
-                    examList.appendChild(examItem);
-                });
+                const examList = document.getElementById('exam-list');
+                examList.innerHTML = '';
+
+                if (data.exams.length === 0) {
+                    examList.innerHTML = '<p>No upcoming exams.</p>';
+                } else {
+                    data.exams.forEach(exam => {
+                        const examItem = document.createElement('div');
+                        examItem.className = 'card-box';
+                        examItem.innerHTML = `<h4>${exam.title}</h4><p><strong>Date:</strong> ${exam.date}</p>`;
+                        examList.appendChild(examItem);
+                    });
+                }
+            })
+            .catch(error => {
+                document.getElementById('exam-list').innerHTML = '<p>Error loading exams.</p>';
+                console.error('Exam fetch error:', error);
             });
     });
 </script>
-<!-- End of CPP Institute Course Dashboard -->
-<!-- Ensure to include Bootstrap or any other CSS framework for styling -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<!-- Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<!-- End of external scripts and stylesheets -->
-</div>
-<!-- End of CPP Institute Course Dashboard -->
-<!-- This is a simple HTML template for a CPP Institute course dashboard. It includes sections for courses, exams, and resources. The script at the bottom dynamically fetches course and exam data from an API and displays it on the page. Make sure to replace the API endpoints with your actual data source
-and customize the styles as needed. -->
-<!-- Note: This template assumes you have a backend API that provides course and exam data in JSON format. Adjust the fetch URLs accordingly. -->
-<!-- You can also enhance this template by adding user authentication, progress tracking, and other features as needed. -->
-<!-- Remember to test the functionality of the dynamic content loading and ensure that the API endpoints return the expected data structure. -->
-<!-- This template is a starting point and can be expanded with additional features such as user profiles, course completion tracking, and more. -->
-<!-- Feel free to modify the layout, styles, and scripts to fit your specific requirements and design preferences. -->
-<!-- Make sure to validate the HTML and ensure it meets accessibility standards for a better user experience. -->
-<!-- You can also consider adding error handling for the fetch requests to manage cases where the API might not respond or return an error. -->
-<!-- This will help improve the robustness of your dashboard and provide a better user experience. -->
-<!-- Finally, ensure that you have the necessary permissions to use any external resources or APIs, and comply with their usage policies. -->
-<!-- This template is designed to be a flexible starting point for your CPP Institute course dashboard. You can expand it with additional features such as user profiles, course completion tracking, and more. -->
-<!-- Remember to test the functionality of the dynamic content loading and ensure that the API endpoints return the expected data structure. -->
-<!-- You can also enhance this template by adding user authentication, progress tracking, and other features as needed. -->
-<!-- This template is a simple HTML structure for a CPP Institute course dashboard. It includes sections for courses,
-exams, and resources. The script at the bottom dynamically fetches course and exam data from an API and displays it on the page. Make sure to replace the API endpoints with your actual data source and customize the styles as needed. -->
-<!-- Note: This template assumes you have a backend API that provides course and exam data in JSON format. Adjust the fetch URLs accordingly. -->
-<!-- You can also enhance this template by adding user authentication, progress tracking, and other features as needed. -->
-<!-- Remember to validate the HTML and ensure it meets accessibility standards for a better user experience. -->
-<!-- You can also consider adding error handling for the fetch requests to manage cases where the API might not respond or return an error. -->
-<!-- This will help improve the robustness of your dashboard and provide a better user experience. -->
-<!-- Finally, ensure that you have the necessary permissions to use any external resources or APIs, and comply with their usage policies. -->
-<!-- This template is designed to be a flexible starting point for your CPP Institute course dashboard. You can expand it with additional features such as user profiles, course completion tracking, and more. -->
-<!-- Remember to test the functionality of the dynamic content loading and ensure that the API endpoints return the expected data structure. -->
-<!-- You can also enhance this template by adding user authentication, progress tracking, and other features as needed. -->
-<!-- This template is a simple HTML structure for a CPP Institute course dashboard. It includes sections for courses,
-exams, and resources. The script at the bottom dynamically fetches course and exam data from an API and displays it on the page. Make sure to replace the API endpoints with your actual data source and customize the styles as needed. -->
-<!-- Note: This template assumes you have a backend API that provides course and exam data in JSON format. Adjust the fetch URLs accordingly. -->
-<!-- You can also enhance this template by adding user authentication, progress tracking, and other features as needed. -->
-<!-- Remember to validate the HTML and ensure it meets accessibility standards for a better user experience. -->
-<!-- You can also consider adding error handling for the fetch requests to manage cases where the API might not respond or return an error. -->
-<!-- This will help improve the robustness of your dashboard and provide a better user experience. -->
-<!-- Finally, ensure that you have the necessary permissions to use any external resources or APIs, and comply with their usage policies. -->
-<!-- This template is designed to be a flexible starting point for your CPP Institute course dashboard. You can expand it with additional features such as user profiles, course completion tracking, and more. -->
-<!-- Remember to test the functionality of the dynamic content loading and ensure that the API endpoints return the expected data structure. -->
-<!-- You can also enhance this template by adding user authentication, progress tracking, and other features as needed. -->
-<!-- This template is a simple HTML structure for a CPP Institute course dashboard. It includes sections for courses,
-exams, and resources. The script at the bottom dynamically fetches course and exam data from an API and displays it on the page. Make sure to replace the API endpoints with your actual data source and customize the styles as needed. -->
-<!-- Note: This template assumes you have a backend API that provides course and exam data in JSON format. Adjust the fetch URLs accordingly. -->
-<!-- You can also enhance this template by adding user authentication, progress tracking, and other features as needed. -->
-<!-- Remember to validate the HTML and ensure it meets accessibility standards for a better user experience. -->
-<!-- You can also consider adding error handling for the fetch requests to manage cases where the API might not respond or return an error. -->
-<!-- This will help improve the robustness of your dashboard and provide a better user experience.  -->
-<!-- Finally, ensure that you have the necessary permissions to use any external resources or APIs, and comply with their usage policies. -->
-<!-- This template is designed to be a flexible starting point for your CPP Institute course dashboard. You can expand it with additional features such as user profiles, course completion tracking, and more. -->
-<!-- Remember to test the functionality of the dynamic content loading and ensure that the API endpoints return the expected data structure. -->
-<!-- You can also enhance this template by adding user authentication, progress tracking, and other features as needed. -->
-<!-- This template is a simple HTML structure for a CPP Institute course dashboard. It includes sections for courses,
-exams, and resources. The script at the bottom dynamically fetches course and exam data from an API and displays it on the page. Make sure to replace the API endpoints with your actual data source and customize the styles as needed. -->
-<!-- Note: This template assumes you have a backend API that provides course and exam data in JSON format. Adjust the fetch URLs accordingly. -->
-<!-- You can also enhance this template by adding user authentication, progress tracking, and other features as needed. -->
-<!-- Remember to validate the HTML and ensure it meets accessibility standards for a better user experience. -->
-<!-- You can also consider adding error handling for the fetch requests to manage cases where the API might not respond or return an error. -->
-<!-- This will help improve the robustness of your dashboard and provide a better user experience. -->
-<!-- Finally, ensure that you have the necessary permissions to use any external resources or APIs, and comply with their usage policies. -->
-<!-- This template is designed to be a flexible starting point for your CPP Institute course dashboard. You can expand it with additional features such as user profiles, course completion tracking, and more. -->
-<!-- Remember to test the functionality of the dynamic content loading and ensure that the API endpoints return the expected data structure. -->
-<!-- You can also enhance this template by adding user authentication, progress tracking, and other features as needed. -->
-<!-- This template is a simple HTML structure for a CPP Institute course dashboard. It includes sections for courses,
-exams, and resources. The script at the bottom dynamically fetches course and exam data from an API and displays it on the page. Make sure to replace the API endpoints with your actual data source and customize the styles as needed. -->
-<!-- Note: This template assumes you have a backend API that provides course and exam data in JSON format. Adjust the fetch URLs accordingly. -->
-<!-- You can also enhance this template by adding user authentication, progress tracking, and other features as needed. -->
-<!-- Remember to validate the HTML and ensure it meets accessibility standards for a better user experience. -->
-<!-- You can also consider adding error handling for the fetch requests to manage cases where the API might not respond or return an error. -->
-<!-- This will help improve the robustness of your dashboard and provide a better user experience. -->
-<!-- Finally, ensure that you have the necessary permissions to use any external resources or APIs, and comply with their usage policies. -->
-<!-- This template is designed to be a flexible starting point for your CPP Institute course dashboard. You can expand it with additional features such as user profiles, course completion tracking, and more. -->
-<!-- Remember to test the functionality of the dynamic content loading and ensure that the API endpoints return the expected data structure. -->
-<!-- You can also
+
+    <script>
+    function goHome() {
+      window.location.href = "/../courses/courses.html";
+    }
+    // Tile click and keyboard navigation
+    document.querySelectorAll('.tile').forEach(tile => {
+      tile.addEventListener('click', () => {
+        const certName = tile.getAttribute('data-cert');
+        window.location.href = `/../certification_tracker/${certName.toLowerCase().replace(/\s+/g, '_')}.html`;
+      });
+      tile.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          tile.click();
+        }
+      });
+    });
+    // Optional: Arrow key navigation for PS5 feel
+    const tiles = Array.from(document.querySelectorAll('.tile'));
+    let focusedIndex = 0;
+    document.body.addEventListener('keydown', (e) => {
+      if (['ArrowRight', 'ArrowLeft'].includes(e.key)) {
+        tiles[focusedIndex].blur();
+        if (e.key === 'ArrowRight') focusedIndex = (focusedIndex + 1) % tiles.length;
+        if (e.key === 'ArrowLeft') focusedIndex = (focusedIndex - 1 + tiles.length) % tiles.length;
+        tiles[focusedIndex].focus();
+      }
+    });
+  </script>
 
 
+    <button class="floating-home-button fa fa-home" onclick="goHome()" aria-label="Back to Home"></button>
 
+  <footer>
+    <p>&copy; 2025 Nathan Busse</p>
+  </footer>
+
+
+</body>
+</html>
