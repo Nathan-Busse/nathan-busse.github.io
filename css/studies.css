@@ -431,7 +431,7 @@
  .pace .pace-progress {
 	 background: #FF0077;
 	 position: fixed;
-	 z-hackathon-dashboard: 900;
+	 z-index: 900;
 	 top: 0;
 	 right: 100%;
 	 width: 100%;
@@ -451,7 +451,7 @@
 	 right: 0;
 	 bottom: 0;
 	 background: #151515;
-	 z-hackathon-dashboard: 800;
+	 z-index: 800;
 	 height: 100%;
 	 width: 100%;
  }
@@ -1087,7 +1087,7 @@
 	 position: fixed;
 	 width: 100%;
 	 min-height: 66px;
-	 z-hackathon-dashboard: 600;
+	 z-index: 600;
  }
  header .row {
 	 position: relative;
@@ -2744,7 +2744,7 @@
 	 position: fixed;
 	 bottom: 0;
 	 right: 0;
-	 z-hackathon-dashboard: 600;
+	 z-index: 600;
 	 display: none;
  }
  #go-top a {

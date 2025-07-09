@@ -78,7 +78,7 @@
 
 /* fade */
 .owl-fade-out {
-	z-hackathon-dashboard: 10;
+	z-index: 10;
 	-webkit-animation: fadeOut .7s both ease;
 	-moz-animation: fadeOut .7s both ease;
 	animation: fadeOut .7s both ease;
@@ -354,7 +354,7 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
-	z-hackathon-dashboard: 1042;
+	z-index: 1042;
 	overflow: hidden;
 	position: fixed;
 	background: #0b0b0b;
@@ -366,7 +366,7 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
-	z-hackathon-dashboard: 1043;
+	z-index: 1043;
 	position: fixed;
 	outline: none !important;
 	-webkit-backface-visibility: hidden;
@@ -398,7 +398,7 @@
 	vertical-align: middle;
 	margin: 0 auto;
 	text-align: left;
-	z-hackathon-dashboard: 1045;
+	z-index: 1045;
 }
 .mfp-inline-holder .mfp-content, .mfp-ajax-holder .mfp-content {
 	width: 100%;
@@ -441,7 +441,7 @@
 	margin-top: -0.8em;
 	left: 8px;
 	right: 8px;
-	z-hackathon-dashboard: 1044;
+	z-index: 1044;
 }
 .mfp-preloader a {
 	color: #CCC;
@@ -464,7 +464,7 @@ button.mfp-close, button.mfp-arrow {
 	display: block;
 	outline: none;
 	padding: 0;
-	z-hackathon-dashboard: 1046;
+	z-index: 1046;
 	-webkit-box-shadow: none;
 	box-shadow: none;
 }
@@ -634,7 +634,7 @@ img.mfp-img {
 	right: 0;
 	width: auto;
 	height: auto;
-	z-hackathon-dashboard: -1;
+	z-index: -1;
 	box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
 	background: #444;
 }

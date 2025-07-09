@@ -2,7 +2,7 @@
   "name": "nathan-busse.github.io",
   "version": "1.0.0",
   "description": "personal website",
-  "main": "hackathon-dashboard.html",
+  "main": "index.html",
   "scripts": {
     "test": "test"
   },

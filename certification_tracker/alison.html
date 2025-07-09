@@ -30,12 +30,12 @@
     body {
       min-height: 100vh;
       position: relative;
-      z-hackathon-dashboard: 1;
+      z-index: 1;
     }
     .rgb-bg {
       position: fixed;
       inset: 0;
-      z-hackathon-dashboard: 0;
+      z-index: 0;
       background: linear-gradient(120deg,
         #2e2e38 0%,
         #1a1a22 30%,
@@ -54,7 +54,7 @@
     }
     .keyboard-container {
       position: relative;
-      z-hackathon-dashboard: 1;
+      z-index: 1;
       margin: 6vh auto;
       max-width: 1000px;
       background: var(--bg1);
@@ -246,7 +246,7 @@
       cursor: pointer;
       transition: background 0.2s, transform 0.2s;
       box-shadow: 0 4px 16px #5ea0ef55, 0 2px 0 #000a;
-      z-hackathon-dashboard: 99;
+      z-index: 99;
       outline: none;
     }
     .floating-home-button:hover {
