@@ -47,7 +47,7 @@
 │   │       ├── fontawesome-webfont.ttf
 │   │       └── fontawesome-webfont.woff
 │   ├── fonts.css
-│   ├── index.css
+│   ├── hackathon-dashboard.css
 │   ├── micons/
 │   │   ├── fonts/
 │   │   │   ├── icomoon.eot
@@ -117,7 +117,7 @@
 │   │       ├── fontawesome-webfont.ttf
 │   │       └── fontawesome-webfont.woff
 │   ├── fonts.css
-│   ├── index.css
+│   ├── hackathon-dashboard.css
 │   ├── micons/
 │   │   ├── fonts/
 │   │   │   ├── icomoon.eot
@@ -126,7 +126,7 @@
 │   │   │   └── icomoon.woff
 │   │   └── micons.css
 │   └── vendor.css
-├── index.html
+├── hackathon-dashboard.html
 ├── js
 ├── js/
 │   ├── flip.js

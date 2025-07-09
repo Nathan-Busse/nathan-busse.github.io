@@ -824,7 +824,7 @@
                     "blank": 107,
                     "code": 2597,
                     "comment": 307,
-                    "filename": "css/index.css"
+                    "filename": "css/hackathon-dashboard.css"
                 },
                 {
                     "filename": "css/micons/fonts/icomoon.eot",
@@ -1242,7 +1242,7 @@
                     "blank": 106,
                     "code": 2365,
                     "comment": 305,
-                    "filename": "fontstyles/index.css"
+                    "filename": "fontstyles/hackathon-dashboard.css"
                 },
                 {
                     "filename": "fontstyles/micons/fonts/icomoon.eot",
@@ -1287,7 +1287,7 @@
                     "blank": 95,
                     "code": 370,
                     "comment": 21,
-                    "filename": "index.html"
+                    "filename": "hackathon-dashboard.html"
                 },
                 {
                     "blank": 2,
@@ -1371,19 +1371,19 @@
                     "blank": 9,
                     "code": 36,
                     "comment": 0,
-                    "filename": "prototyping/index/typewriter/index.css"
+                    "filename": "prototyping/hackathon-dashboard/typewriter/hackathon-dashboard.css"
                 },
                 {
                     "blank": 0,
                     "code": 16,
                     "comment": 0,
-                    "filename": "prototyping/index/typewriter/index.html"
+                    "filename": "prototyping/hackathon-dashboard/typewriter/hackathon-dashboard.html"
                 },
                 {
                     "blank": 4,
                     "code": 21,
                     "comment": 1,
-                    "filename": "prototyping/index/typewriter/index.js"
+                    "filename": "prototyping/hackathon-dashboard/typewriter/hackathon-dashboard.js"
                 },
                 {
                     "blank": 0,
@@ -1474,7 +1474,7 @@
                     "blank": 0,
                     "code": 20,
                     "comment": 23,
-                    "filename": "study-progress/public/index.html"
+                    "filename": "study-progress/public/hackathon-dashboard.html"
                 },
                 {
                     "filename": "study-progress/public/logo192.png",
@@ -1548,13 +1548,13 @@
                     "blank": 1,
                     "code": 12,
                     "comment": 0,
-                    "filename": "study-progress/src/index.css"
+                    "filename": "study-progress/src/hackathon-dashboard.css"
                 },
                 {
                     "blank": 2,
                     "code": 12,
                     "comment": 3,
-                    "filename": "study-progress/src/index.js"
+                    "filename": "study-progress/src/hackathon-dashboard.js"
                 },
                 {
                     "blank": 0,

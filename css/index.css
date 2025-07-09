@@ -426,7 +426,7 @@
  .pace .pace-progress {
 	 background: #FF0077;
 	 position: fixed;
-	 z-index: 900;
+	 z-hackathon-dashboard: 900;
 	 top: 0;
 	 right: 100%;
 	 width: 100%;
@@ -446,7 +446,7 @@
 	 right: 0;
 	 bottom: 0;
 	 background: #151515;
-	 z-index: 800;
+	 z-hackathon-dashboard: 800;
 	 height: 100%;
 	 width: 100%;
  }
@@ -1082,7 +1082,7 @@
 	 position: fixed;
 	 width: 100%;
 	 min-height: 66px;
-	 z-index: 600;
+	 z-hackathon-dashboard: 600;
  }
  header .row {
 	 position: relative;
@@ -1305,7 +1305,7 @@
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  z-index: 0;
+  z-hackathon-dashboard: 0;
   pointer-events: none;
   display: block;
 }
@@ -2978,7 +2978,7 @@
 	 position: fixed;
 	 bottom: 0;
 	 right: 0;
-	 z-index: 600;
+	 z-hackathon-dashboard: 600;
 	 display: none;
  }
  #go-top a {

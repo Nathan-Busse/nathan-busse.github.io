@@ -2,7 +2,7 @@
   "name": "nathan-busse.github.io",
   "version": "1.0.0",
   "description": "personal website",
-  "main": "index.html",
+  "main": "hackathon-dashboard.html",
   "scripts": {
     "test": "test"
   },
@@ -22,8 +22,10 @@
   "dependencies": {
     "@types/react": "^19.1.4",
     "@types/react-dom": "^19.1.5",
+    "@types/react-router-dom": "^5.3.3",
     "lucide": "^0.511.0",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "react-router-dom": "^7.6.3"
   }
 }

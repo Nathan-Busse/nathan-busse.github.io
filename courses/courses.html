@@ -25,7 +25,7 @@
       padding: 2rem 0 1rem 2rem;
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-hackathon-dashboard: 10;
       display: flex;
       align-items: center;
       border-bottom: 1px solid #2e3446;
@@ -83,7 +83,7 @@
       box-shadow: 0 16px 48px 0 #0a0a0a88, 0 2px 0 #3a3f4b;
       background: linear-gradient(120deg, #2e3446 60%, #3a3f4b 100%);
       border: 2px solid #4f8cff;
-      z-index: 2;
+      z-hackathon-dashboard: 2;
     }
     .tile img {
       width: 80px;
@@ -126,7 +126,7 @@
       cursor: pointer;
       transition: background 0.2s, transform 0.2s;
       box-shadow: 0 4px 16px #5ea0ef55, 0 2px 0 #000a;
-      z-index: 99;
+      z-hackathon-dashboard: 99;
       outline: none;
     }
     .floating-home-button:hover {
@@ -175,34 +175,34 @@
     <div class="navbar">
         <h1>Enrolled institutions</h1>
     </div>
-    <div class="certifications" tabindex="0">
-        <div class="tile" data-cert="Alison" tabindex="0">
+    <div class="certifications" tabhackathon-dashboard="0">
+        <div class="tile" data-cert="Alison" tabhackathon-dashboard="0">
             <img src="PageAssets/icons/Alison-icon.png" alt="Alison">
             <h2>Alison</h2>
         </div>
-        <div class="tile" data-cert="Microsoft Learn" tabindex="0">
+        <div class="tile" data-cert="Microsoft Learn" tabhackathon-dashboard="0">
             <img src="PageAssets/icons/ms-icon.jpg" alt="Microsoft Learn">
             <h2>Microsoft Learn</h2>
         </div>
-        <div class="tile" data-cert="cppinstitute" tabindex="0">
+        <div class="tile" data-cert="cppinstitute" tabhackathon-dashboard="0">
             <img src="PageAssets/icons/cppinstitute-icon.png" alt="C++ institute">
             <h2>C++ institute</h2>
 <!--
-        <div class="tile" data-cert="503" tabindex="0">
+        <div class="tile" data-cert="503" tabhackathon-dashboard="0">
             <img src="PageAssets/icons/LibertyU-icon.png" alt="LibertyU">
             <h2>LibertyU</h2>
         </div>
 
-        <div class="tile" data-cert="503" tabindex="0">
+        <div class="tile" data-cert="503" tabhackathon-dashboard="0">
             <img src="PageAssets/icons/aws-icon.jpeg" alt="AWS Skills Builder">
             <h2>AWS Skills Builder</h2>
         </div>
         </div>
-        <div class="tile" data-cert="503" tabindex="0">
+        <div class="tile" data-cert="503" tabhackathon-dashboard="0">
             <img src="PageAssets/icons/unity-icon.png" alt="Unity Learn">
             <h2>Unity Learn</h2>
         </div>
-        <div class="tile" data-cert="503" tabindex="0">
+        <div class="tile" data-cert="503" tabhackathon-dashboard="0">
             <img src="PageAssets/icons/autodesk-icon.png" alt="Autodesk Learning">
             <h2>Autodesk Learning</h2>
         </div>
@@ -219,7 +219,7 @@
     </footer>
     <script>
       function goHome() {
-        window.location.href = "/index.html";
+        window.location.href = "/hackathon-dashboard.html";
       }
       // Tile click and keyboard navigation
       document.querySelectorAll('.tile').forEach(tile => {
@@ -235,13 +235,13 @@
       });
       // Optional: Arrow key navigation for PS5 feel
       const tiles = Array.from(document.querySelectorAll('.tile'));
-      let focusedIndex = 0;
+      let focusedHackathon-dashboard = 0;
       document.body.addEventListener('keydown', (e) => {
         if (['ArrowRight', 'ArrowLeft'].includes(e.key)) {
-          tiles[focusedIndex].blur();
-          if (e.key === 'ArrowRight') focusedIndex = (focusedIndex + 1) % tiles.length;
-          if (e.key === 'ArrowLeft') focusedIndex = (focusedIndex - 1 + tiles.length) % tiles.length;
-          tiles[focusedIndex].focus();
+          tiles[focusedHackathon-dashboard].blur();
+          if (e.key === 'ArrowRight') focusedHackathon-dashboard = (focusedHackathon-dashboard + 1) % tiles.length;
+          if (e.key === 'ArrowLeft') focusedHackathon-dashboard = (focusedHackathon-dashboard - 1 + tiles.length) % tiles.length;
+          tiles[focusedHackathon-dashboard].focus();
         }
       });
     </script>
